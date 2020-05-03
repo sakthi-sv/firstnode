@@ -16,4 +16,5 @@ connection.connect(error => {
     else
     console.log("Successfully connected to the database.");
   });
-  module.export=connection;
+
+  module.exports=connection;
