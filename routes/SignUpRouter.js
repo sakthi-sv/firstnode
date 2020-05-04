@@ -16,6 +16,34 @@ class SignUp{
             )
                 
         });
+        router.get("/",(req,res)=>{
+            this.controller.getData(
+                
+                (err, result) => {
+                    if (err) console.log(err)
+                    else res.send(result)
+                }
+            )
+        });
+        router.delete("/:id",(req,res)=>{
+            //console.log("ef",req);
+            this.controller.deleteData(
+                req.params,
+                (err,result)=>{
+                    if (err) console.log(err);
+                    else    res.send(result)
+                }
+            )
+        });
+        router.put("/:id",(req,res)=>{
+            this.controller.updateData(
+                req.params,req.body,
+                (err,result)=>{
+                    if (err) console.log(err);
+                    else    res.send(result)
+                }               
+            )
+        })
     }
     getRouter(){
         return router;
