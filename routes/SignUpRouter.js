@@ -25,6 +25,19 @@ class SignUp{
                 }
             )
         });
+        router.post("/login",(req,res)=>{
+            console.log("qw"+req.body);
+            this.controller.getUData(
+                
+                req.body,
+                (err, result) => {
+                    if (err) console.log(err)
+                    else{ 
+                      
+                        res.send(result)}
+                }
+            )
+        });
         router.delete("/:id",(req,res)=>{
             //console.log("ef",req);
             this.controller.deleteData(
@@ -44,6 +57,8 @@ class SignUp{
                 }               
             )
         })
+
+
     }
     getRouter(){
         return router;

@@ -18,6 +18,7 @@ app.get('/',(req,res)=>{
    res.send("Get Started with Express"); 
 })
 app.use('/signup',SignUpRouter.getRouter());
+//app.use('/login',SignUpRouter.getRouter());
 //server
 const port = 8000;
 app.listen(port,()=> {

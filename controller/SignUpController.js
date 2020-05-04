@@ -15,10 +15,18 @@ class SignUpController{
             callBack(err,result)
         });
     }
+    getUData(data,callBack){
+        console.log("er",data);
+        let query=`Select id from register where name ='${data.name}'  and password='${data.password}'`;
+        connect.query(query,(err,result)=>{
+            console.log(result[0].id);
+            if(result[0].id)    callBack(err,{isValid:true});
+            
+        });
+    }
     deleteData(id,callBack){
         console.log(id);
         let query="delete from register where ?";
-        
         connect.query(query,id,(err,result)=>{
             callBack(err,result);
         })
