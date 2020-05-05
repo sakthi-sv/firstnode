@@ -1,6 +1,7 @@
 //Require module
 const express = require('express');
 const bodyParser =require("body-parser");
+var cors= require('cors');
 // Express Initialize
 const app = express();
 
@@ -10,6 +11,7 @@ let SignUpRouter=require("./routes/SignUpRouter")(SignUpcontroller);
 
 
 // parse requests of content-type: application/json
+app.use(cors()); //itha mela poten avlo dhan....
 app.use(bodyParser.json());
 //const connect=require("./models/db.js");
 
