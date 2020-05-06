@@ -19,9 +19,7 @@ class SignUpController{
         console.log("er",data);
         let query=`Select id from register where name ='${data.name}'  and password='${data.password}'`;
         connect.query(query,(err,result)=>{
-            console.log(result[0].id);
-            if(result[0].id)    callBack(err,{isValid:true});
-            
+            callBack(err,{isValid:result[0]!==undefined}); 
         });
     }
     deleteData(id,callBack){
